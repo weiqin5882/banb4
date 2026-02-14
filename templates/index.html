@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>订单对账与利润核算系统</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>订单对账与利润核算系统</h1>
+
+    <div class="card">
+      <h2>上传文件</h2>
+      <form id="reconcile-form">
+        <div class="grid">
+          <div>
+            <label>官方订单表（.xlsx/.xls）</label>
+            <input type="file" name="official_file" accept=".xlsx,.xls,.et" required />
+          </div>
+          <div>
+            <label>客服统计表（.xlsx/.xls）</label>
+            <input type="file" name="customer_file" accept=".xlsx,.xls,.et" required />
+          </div>
+        </div>
+
+        <h3>可选：字段映射（留空则自动识别）</h3>
+        <div class="grid map-grid">
+          <div>
+            <h4>官方表</h4>
+            <input name="official_order_no" placeholder="订单号列名" />
+            <input name="official_product_name" placeholder="商品名称列名" />
+            <input name="official_status" placeholder="订单状态列名" />
+            <input name="official_sales_amount" placeholder="销售金额列名" />
+            <input name="official_cost_amount" placeholder="成本列名" />
+          </div>
+          <div>
+            <h4>客服表</h4>
+            <input name="customer_order_no" placeholder="订单号列名" />
+            <input name="customer_product_name" placeholder="商品名称列名" />
+            <input name="customer_status" placeholder="订单状态列名" />
+            <input name="customer_sales_amount" placeholder="销售金额列名" />
+            <input name="customer_cost_amount" placeholder="成本列名" />
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit">开始比对</button>
+          <a class="button" href="/api/export" id="download-btn">下载 Excel</a>
+        </div>
+      </form>
+      <p id="message"></p>
+    </div>
+
+    <div class="card">
+      <h2>汇总</h2>
+      <div id="summary"></div>
+    </div>
+
+    <div class="card">
+      <h2>比对结果</h2>
+      <table id="result-table">
+        <thead>
+          <tr>
+            <th data-key="序号">序号</th>
+            <th data-key="订单号">订单号</th>
+            <th data-key="商品名称">商品名称</th>
+            <th data-key="销售金额">销售金额</th>
+            <th data-key="成本">成本</th>
+            <th data-key="单笔利润">单笔利润</th>
+            <th data-key="状态标记">状态标记</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="pager">
+        <button id="prev">上一页</button>
+        <span id="page-info">第 1 页</span>
+        <button id="next">下一页</button>
+      </div>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
