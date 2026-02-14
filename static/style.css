@@ -1,0 +1,53 @@
+body {
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+  background: #f4f7fb;
+  margin: 0;
+  color: #223;
+}
+.container {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.map-grid input {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+}
+label { display:block; margin-bottom:6px; font-weight:600; }
+input { padding:8px; border:1px solid #cbd3df; border-radius:6px; }
+.actions { margin-top: 12px; display:flex; gap:10px; }
+button, .button {
+  background: #155eef;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+#result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+#result-table th, #result-table td {
+  border: 1px solid #e3e7ef;
+  padding: 8px;
+}
+#result-table th { background:#f0f3fa; cursor:pointer; }
+tr.loss { background: #ffdfe3; }
+.pager { margin-top:10px; display:flex; gap:8px; align-items:center; }
+#message { color:#c32222; }
